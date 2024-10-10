@@ -1,0 +1,275 @@
+{
+	"info": {
+		"_postman_id": "2e904c2e-cb58-4e18-b109-4df51863448e",
+		"name": "Assignment_app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38933766"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "registerUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Satvik\",\r\n    \"password\": \"2345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{user_url}}/register",
+							"host": [
+								"{{user_url}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loginUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{user_url}}/login",
+							"host": [
+								"{{user_url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "uploadAssignment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MDgyMGM3N2RkOTkyNTM4Y2Y3ZjQ2NSIsImlhdCI6MTcyODU5MDE2OSwiZXhwIjoxNzMxMTgyMTY5fQ.B8bfAf3s-p0YqXO8Sa9UhlOVTajAj3Rm5H-zt9zxx3s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"task\" : \"Hello World\",\r\n    \"adminId\" : \"Pallavi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{user_url}}/upload",
+							"host": [
+								"{{user_url}}"
+							],
+							"path": [
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAdmins",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MDgyMGM3N2RkOTkyNTM4Y2Y3ZjQ2NSIsImlhdCI6MTcyODU5MDE2OSwiZXhwIjoxNzMxMTgyMTY5fQ.B8bfAf3s-p0YqXO8Sa9UhlOVTajAj3Rm5H-zt9zxx3s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{user_url}}/admins",
+							"host": [
+								"{{user_url}}"
+							],
+							"path": [
+								"admins"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "registerAdmin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Pallavi\",\r\n    \"password\": \"0987\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/register",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loginAdmin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Pallavi\",\r\n    \"password\": \"0987\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{admin_url}}/login",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAssignments",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MDgzMTQwMjliYWU0MTU3MWEzM2JmMSIsImlhdCI6MTcyODU5MzU5NSwiZXhwIjoxNzMxMTg1NTk1fQ.CGkjuZKsi95xjd6qr9BGt6kRkBPfNXr0qVGICNsZXBI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{admin_url}}/assignments",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"assignments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "acceptAssignment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MDgzMTQwMjliYWU0MTU3MWEzM2JmMSIsImlhdCI6MTcyODU5MzU5NSwiZXhwIjoxNzMxMTg1NTk1fQ.CGkjuZKsi95xjd6qr9BGt6kRkBPfNXr0qVGICNsZXBI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{admin_url}}/assignments/6708395171d4e0ab9da08873/accept",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"assignments",
+								"6708395171d4e0ab9da08873",
+								"accept"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "rejectAssignment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3MDgzMTQwMjliYWU0MTU3MWEzM2JmMSIsImlhdCI6MTcyODU5MzU5NSwiZXhwIjoxNzMxMTg1NTk1fQ.CGkjuZKsi95xjd6qr9BGt6kRkBPfNXr0qVGICNsZXBI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{admin_url}}/assignments/6708395171d4e0ab9da08873/reject",
+							"host": [
+								"{{admin_url}}"
+							],
+							"path": [
+								"assignments",
+								"6708395171d4e0ab9da08873",
+								"reject"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "user_url",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "admin_url",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
