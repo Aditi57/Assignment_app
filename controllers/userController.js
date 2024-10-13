@@ -42,7 +42,7 @@ exports.uploadAssignment = async (req, res) => {
     const username = adminId
     const admin = await User.findOne({ username });
     console.log(admin)
-    if (admin  && (admin.role == 'admin'))
+    if (admin  && (admin.role == 'admin') && req.user.role == 'user') 
     {
         const assignment = new Assignment({
             userId: req.user._id,
@@ -54,11 +54,14 @@ exports.uploadAssignment = async (req, res) => {
         res.status(201).json({ message: 'Assignment uploaded successfully' });
     }
     else {
-        if (admin) {
+        if (admin && admin.role == 'user') {
             res.status(401).json({message: 'User exists but Invalid Role'});
         }
+        else if(req.user.role == 'admin'){
+            res.status(401).json({error_message: 'Admin is not allowed to create assignment'})
+        }
         else {
-            res.status(401).json({message: 'Admin doesnt exists but Invalid Role'});
+            res.status(401).json({message: 'The admin id does not exist'});
         }
     }
     

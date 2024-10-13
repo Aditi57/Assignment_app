@@ -2,6 +2,19 @@ const Assignment = require('../models/assignmentModel');
 const User = require('../models/userModel');
 const jwt = require('jsonwebtoken');
 
+
+const checkAdmin = (username) => {
+    const admin = User.findOne({username});
+    if (!admin ){
+        return false;
+    }
+    else if(admin.role == user){
+        return false;
+    }
+    else{
+        return true;
+    }
+}
 // Admin registration
 exports.registerAdmin = async (req, res) => {
     const { username, password } = req.body;
@@ -49,6 +62,7 @@ exports.acceptAssignment = async (req, res) => {
     console.log(id)
     const assignment = await Assignment.findById(id);
     console.log(assignment)
+    if (checkAdmin (req.user))
     if (assignment && assignment.admin.equals(req.user._id)) {
         assignment.status = 'accepted';
         await assignment.save();
